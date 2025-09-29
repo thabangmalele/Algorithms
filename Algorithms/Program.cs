@@ -1,0 +1,114 @@
+﻿internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Header();
+
+        while(true)
+        {
+            Console.Write(@"
+1. Bubble Sort
+2. Linear Search
+3. Caesar Cipher
+Q. Quit. . .
+-> ");
+
+            var input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    RunBubbleSort();
+                    break;
+                case "2":
+                    RunLinearSearch();
+                    break;
+                case "3":
+                    RunCaesarCipher();
+                    break;
+                case "Q": case "q":
+                    return;
+                default:
+                    Console.WriteLine("Invalid input.");
+                    break;
+            }
+        }
+    }
+    public static void RunBubbleSort()
+    {
+        Console.WriteLine(@"
+ ____  __  __  ____  ____  __    ____  ___  _____  ____  ____ 
+(  _ \(  )(  )(  _ \(  _ \(  )  ( ___)/ __)(  _  )(  _ \(_  _)
+ ) _ < )(__)(  ) _ < ) _ < )(__  )__) \__ \ )(_)(  )   /  )(  
+(____/(______)(____/(____/(____)(____)(___/(_____)(_)\_) (__) 
+");     
+        Console.Write("Enter list of numbers, separate with ',': ");
+        var input = Console.ReadLine();
+
+        
+    }
+
+    public static void RunLinearSearch()
+    {
+        Console.WriteLine(@"
+ _      ____  ____     ___   ____  ____    _____   ___   ____  ____      __  __ __ 
+| |    |    ||    \   /  _] /    ||    \  / ___/  /  _] /    ||    \    /  ]|  |  |
+| |     |  | |  _  | /  [_ |  o  ||  D  )(   \_  /  [_ |  o  ||  D  )  /  / |  |  |
+| |___  |  | |  |  ||    _]|     ||    /  \__  ||    _]|     ||    /  /  /  |  _  |
+|     | |  | |  |  ||   [_ |  _  ||    \  /  \ ||   [_ |  _  ||    \ /   \_ |  |  |
+|     | |  | |  |  ||     ||  |  ||  .  \ \    ||     ||  |  ||  .  \\     ||  |  |
+|_____||____||__|__||_____||__|__||__|\_|  \___||_____||__|__||__|\_| \____||__|__|
+                                                                                   
+");
+        Console.Write("Enter list of numbers, separate with ',': ");
+        var input = Console.ReadLine();
+    }
+
+    public static void RunCaesarCipher()
+    {
+        Console.WriteLine(@"
+.------..------..------..------..------..------.     .------..------..------..------..------..------.
+|C.--. ||A.--. ||E.--. ||S.--. ||A.--. ||R.--. |.-.  |C.--. ||I.--. ||P.--. ||H.--. ||E.--. ||R.--. |
+| :/\: || (\/) || (\/) || :/\: || (\/) || :(): ((5)) | :/\: || (\/) || :/\: || :/\: || (\/) || :(): |
+| :\/: || :\/: || :\/: || :\/: || :\/: || ()() |'-.-.| :\/: || :\/: || (__) || (__) || :\/: || ()() |
+| '--'C|| '--'A|| '--'E|| '--'S|| '--'A|| '--'R| ((1)) '--'C|| '--'I|| '--'P|| '--'H|| '--'E|| '--'R|
+`------'`------'`------'`------'`------'`------'  '-'`------'`------'`------'`------'`------'`------'
+");
+        Console.Write("Enter text to encrypt: ");
+        var input = Console.ReadLine();
+
+        Console.Write("Enter value of indentation: ");
+        var input2 = Console.ReadLine();
+
+
+    }
+    private static void Header()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine(@"
+ █████  ██       ██████   ██████  ██████  ██ ████████ ██   ██ ███    ███ ███████ 
+██   ██ ██      ██       ██    ██ ██   ██ ██    ██    ██   ██ ████  ████ ██      
+███████ ██      ██   ███ ██    ██ ██████  ██    ██    ███████ ██ ████ ██ ███████ 
+██   ██ ██      ██    ██ ██    ██ ██   ██ ██    ██    ██   ██ ██  ██  ██      ██ 
+██   ██ ███████  ██████   ██████  ██   ██ ██    ██    ██   ██ ██      ██ ███████ 
+                                                                                 
+A collection of algorithms to sort text, numbers,
+objects and the likes into your desired output.
+Bubble Sort, Linear Search, Caesar Crypt, you
+name it.
+");
+        Console.WriteLine("Press any key to continue . . .");
+        Console.ReadKey();
+        Console.ResetColor();
+        Console.Clear();
+        Console.WriteLine(@"
+ █████  ██       ██████   ██████  ██████  ██ ████████ ██   ██ ███    ███ ███████ 
+██   ██ ██      ██       ██    ██ ██   ██ ██    ██    ██   ██ ████  ████ ██      
+███████ ██      ██   ███ ██    ██ ██████  ██    ██    ███████ ██ ████ ██ ███████ 
+██   ██ ██      ██    ██ ██    ██ ██   ██ ██    ██    ██   ██ ██  ██  ██      ██ 
+██   ██ ███████  ██████   ██████  ██   ██ ██    ██    ██   ██ ██      ██ ███████ 
+
+Choose algorithm to use: ");
+        // in main, we list all the algorithms we have
+    }
+}
