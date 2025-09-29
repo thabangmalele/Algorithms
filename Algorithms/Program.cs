@@ -1,4 +1,4 @@
-﻿internal class Program
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -36,6 +36,7 @@ Q. Quit. . .
     }
     public static void RunBubbleSort()
     {
+        Console.Clear();
         Console.WriteLine(@"
  ____  __  __  ____  ____  __    ____  ___  _____  ____  ____ 
 (  _ \(  )(  )(  _ \(  _ \(  )  ( ___)/ __)(  _  )(  _ \(_  _)
@@ -45,7 +46,66 @@ Q. Quit. . .
         Console.Write("Enter list of numbers, separate with ',': ");
         var input = Console.ReadLine();
 
-        
+        int[] numbers;
+
+        try
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\nSplitting . . .\n");
+            Thread.Sleep(1000);
+            numbers = input
+                .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(s => int.Parse(s.Trim()))
+                .ToArray();
+
+            
+            Console.WriteLine("Done!");
+            foreach (int c in numbers)
+            {
+                Console.WriteLine(c);
+            }
+            Console.ResetColor();
+        } 
+        catch
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"Invalid input! Make sure you only enter numbers separated by commas.
+Press any key to try again . . .");
+            Console.ReadKey();
+            return;
+        }
+
+        Console.WriteLine("\nSorting . . .\n");
+        Thread.Sleep(1000);
+
+        numbers = BubbleSort(numbers);
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\nSorted!");
+
+        foreach(int n in numbers)
+        {
+            Console.WriteLine(n);
+        }
+        Console.ResetColor();
+    }
+
+    public static int[] BubbleSort(int[] numbers)
+    {
+        for(int i = 0; i < numbers.Length - 1; i++)
+        {
+            for(int j = 0; j < numbers.Length - i - 1; j++)
+            {
+                if(numbers[j] > numbers[j+1])
+                {
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j+1];
+                    numbers[j+1] = temp;
+                }
+            }
+        }
+
+        return numbers;
     }
 
     public static void RunLinearSearch()
